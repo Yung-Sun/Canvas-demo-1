@@ -1,0 +1,4 @@
+#canvas {
+  height: 100vh; /* 屏幕多高，这个就多高 */
+  border: 1px solid red;
+}
