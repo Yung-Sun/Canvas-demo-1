@@ -21,6 +21,7 @@
       let painting = false;
 
       ctx.fillStyle = "blue";
+      ctx.strokeStyle = "none";
 
       canvas.onmousedown = () => {
         painting = true;
@@ -28,7 +29,12 @@
 
       canvas.onmousemove = (e) => {
         if (painting === true) {
-          ctx.fillRect(e.clientX - 5, e.clientY - 5, 10, 10);
+          // ctx.fillRect(e.clientX - 5, e.clientY - 5, 10, 10);
+
+          ctx.beginPath();
+          ctx.arc(e.clientX, e.clientY, 5, 0, 2 * Math.PI);
+          ctx.fill();
+          ctx.stroke();
         } else {
           console.log("什么都不做");
         }
