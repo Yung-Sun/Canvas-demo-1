@@ -3,9 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 #canvas {
-  height: 100vh; /* 屏幕多高，这个就多高 */
-  width: 100vw; /* 屏幕多宽，这个就多宽 */
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: block;
 }
