@@ -18,31 +18,44 @@
 
       let ctx = canvas.getContext("2d");
 
+      ctx.fillStyle = "blue";
+
       let painting = false;
 
-      ctx.fillStyle = "blue";
-      ctx.strokeStyle = "none";
-
-      canvas.onmousedown = () => {
-        painting = true;
-      };
-
-      canvas.onmousemove = (e) => {
-        if (painting === true) {
-          // ctx.fillRect(e.clientX - 5, e.clientY - 5, 10, 10);
-
+      var isTouchDevice = "ontouchstart" in document.documentElement;
+      if (isTouchDevice) {
+        canvas.ontouchmove = (e) => {
+          let x = e.touches[0].clientX;
+          let y = e.touches[0].clientY;
+          console.log(x, y);
           ctx.beginPath();
-          ctx.arc(e.clientX, e.clientY, 5, 0, 2 * Math.PI);
+          ctx.arc(x, y, 10, 0, 2 * Math.PI);
           ctx.fill();
-          ctx.stroke();
-        } else {
-          console.log("什么都不做");
-        }
-      };
+        };
+      } else {
+        console.log(canvas.onmousemove);
 
-      canvas.onmouseup = () => {
-        painting = false;
-      };
+        canvas.onmousedown = () => {
+          painting = true;
+        };
+
+        canvas.onmousemove = (e) => {
+          if (painting === true) {
+            // ctx.fillRect(e.clientX - 5, e.clientY - 5, 10, 10);
+
+            ctx.beginPath();
+            ctx.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
+            ctx.fill();
+            // ctx.stroke();这句话是给笔触加边框
+          } else {
+            console.log("什么都不做");
+          }
+        };
+
+        canvas.onmouseup = () => {
+          painting = false;
+        };
+      }
     </script>
   </body>
 </html>
