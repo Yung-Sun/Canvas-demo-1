@@ -1,4 +1,4 @@
-import ctx from './Canvas'
+import ctx from "./Canvas"
 
 let red = document.querySelector('.red')
 let yellow = document.querySelector('.yellow')
@@ -17,6 +17,7 @@ const colorCode = {
 
 colorList.forEach(item => {
     item.addEventListener('click', () => {
+        console.log(item)
         ctx.strokeStyle = colorCode[item.className]
     })
 })
