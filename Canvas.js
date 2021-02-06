@@ -4,7 +4,7 @@ canvas.height = document.documentElement.clientHeight;
 
 //画线
 let ctx = canvas.getContext("2d"); //获得渲染上下文和它的绘画功能，删了就画不了了
-ctx.fillStyle = "black";
+ctx.strokeStyle = "black";
 ctx.lineWidth = 5;
 ctx.lineCap = "round"; //令笔触末端变为圆形
 let painting = false;
@@ -51,3 +51,5 @@ function drawline(x1, y1, x2, y2) {
     ctx.lineTo(x2, y2);
     ctx.stroke();
 }
+
+export default ctx
